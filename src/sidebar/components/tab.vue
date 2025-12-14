@@ -269,6 +269,11 @@ function onMouseDown(e: MouseEvent): void {
       return
     }
 
+    if (Settings.state.tabLongLeftClick === 'dup_child') {
+      Tabs.duplicateTabs([tab.id], true)
+      return
+    }
+
     if (Selection.isSet() && !(tab.sel || tab.selLock)) Selection.resetSelection()
 
     if (!Selection.isSet() && !Settings.state.activateOnMouseUp) activate()
